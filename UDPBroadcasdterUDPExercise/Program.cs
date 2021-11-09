@@ -18,7 +18,7 @@ namespace UDPBroadcasdterUDPExercise
             UdpClient socket = new UdpClient();
             while (true)
             {
-                var dataObject = GetSesorData();
+                var dataObject = GetSensorData();
                 var JsonData = JsonSerializer.Serialize(dataObject);
                 byte[] data = Encoding.UTF8.GetBytes(JsonData);
                 socket.Send(data, data.Length, "255.255.255.255", 10100);
@@ -34,7 +34,7 @@ namespace UDPBroadcasdterUDPExercise
         }
 
        
-        public static SensorData GetSesorData()
+        public static SensorData GetSensorData()
         {
             Random random = new Random();
             int speed = random.Next(5, 150);
